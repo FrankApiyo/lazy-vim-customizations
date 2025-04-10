@@ -6,6 +6,18 @@ return {
       javascript = { "prettier" },
       svelte = { "prettier" },
       go = { "goimports", "gofmt" },
+      clojure = { "zprint" }, -- Add zprint here
+    },
+    formatters = {
+      zprint = {
+        command = "sh",
+        args = { "-c", "cat | zprint" },
+        stdin = true,
+      },
+    },
+    format_on_save = {
+      lsp_fallback = true,
+      timeout_ms = 1000,
     },
   },
 }
