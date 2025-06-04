@@ -2,11 +2,12 @@ return {
   "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
+      html = { "prettier" },
       typescript = { "prettier" },
       javascript = { "prettier" },
       svelte = { "prettier" },
       go = { "goimports", "gofmt" },
-      clojure = { "zprint" }, -- Add zprint here
+      clojure = { "zprint" },
     },
     formatters = {
       zprint = {
