@@ -74,6 +74,16 @@ return {
         pyright = {},
         tsserver = {},
         svelte = {},
+        -- Configure tailwindcss to exclude SCSS
+        tailwindcss = {
+          filetypes = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+          settings = {
+            tailwindCSS = {
+              includeLanguages = {},
+              excludeLanguages = { "scss", "sass", "clj", "clojure" },
+            },
+          },
+        },
       },
     },
   },

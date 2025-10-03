@@ -5,6 +5,9 @@ return {
       vim.g.ale_fixers = {
         elixir = { "mix_format" },
       }
+      vim.g.ale_linters = {
+        clojure = { "clj-kondo" },
+      }
       vim.g.ale_linters_explicit = 1
     end,
   },

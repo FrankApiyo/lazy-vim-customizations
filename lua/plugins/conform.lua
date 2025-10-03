@@ -4,6 +4,7 @@ return {
     formatters_by_ft = {
       html = { "prettier" },
       typescript = { "prettier" },
+      typescriptreact = { "prettier" },
       javascript = { "prettier" },
       json = { "prettier" },
       svelte = { "prettier" },
