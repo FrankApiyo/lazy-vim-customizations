@@ -1,0 +1,11 @@
+return {
+  "nvim-treesitter/nvim-treesitter-context",
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
+  config = function()
+    require("treesitter-context").setup({
+      enable = true,
+      max_lines = 3, -- How many lines of context to show
+      trim_scope = "outer", -- Remove whitespace
+    })
+  end,
+}
