@@ -41,15 +41,45 @@ require("lazy").setup({
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {
-        "gzip",
+        -- "gzip",
         -- "matchit",
         -- "matchparen",
         -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
-        "zipPlugin",
+        -- "zipPlugin",
       },
     },
   },
 })
+
+-- Transparent background
+local function set_transparent()
+  local groups = {
+    "Normal",
+    "NormalNC",
+    "NormalFloat",
+    "FloatBorder",
+    "SignColumn",
+    "LineNr",
+    "FoldColumn",
+    "EndOfBuffer",
+    "MsgArea",
+    "TelescopeNormal", -- drop if you don't use Telescope
+    "TelescopeBorder",
+  }
+  for _, g in ipairs(groups) do
+    local hl = vim.api.nvim_get_hl(0, { name = g, link = false })
+    hl.bg = nil
+    hl.ctermbg = nil
+    vim.api.nvim_set_hl(0, g, hl)
+  end
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = set_transparent,
+})
+
+set_transparent() -- apply once for the colorscheme already loaded at startup

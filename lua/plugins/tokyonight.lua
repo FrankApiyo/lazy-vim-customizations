@@ -1,11 +1,20 @@
 return {
   "folke/tokyonight.nvim",
   opts = {
+    -- Brightened to meet WCAG contrast on the #1e1e1e terminal background
+    on_colors = function(c)
+      c.fg = "#dde5ff"
+      c.blue = "#91b4ff"
+      c.comment = "#9aa5ce"
+      c.fg_gutter = "#8089b3"
+      c.dark3 = "#8089b3"
+      c.dark5 = "#a9b1d6"
+    end,
     on_highlights = function(hl, c)
       hl.CursorLine = { bg = c.bg_highlight }
       hl.CursorColumn = { bg = c.bg_highlight }
       hl.CursorLineNr = { fg = c.orange, bold = true }
-      hl.Comment = { fg = "#7a83ac", italic = true }
+      hl.Comment = { fg = c.comment, italic = true }
 
       hl.TreesitterContext = { bg = c.bg_highlight }
       hl.TreesitterContextLineNumber = { fg = c.dark5, bg = c.bg_highlight }
