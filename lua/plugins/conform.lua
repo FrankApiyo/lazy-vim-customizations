@@ -17,13 +17,17 @@ return {
         args = { "-c", "cat | zprint" },
         stdin = true,
       },
-      prettier = {
-        prepend_args = { "--tab-width", "4", "--use-tabs", "false" },
-      },
+      prettier = {},
     },
-    format_on_save = {
-      lsp_fallback = true,
-      timeout_ms = 1000,
-    },
+    format_on_save = function(bufnr)
+      local ignore_filetypes = { "markdown" }
+      if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+        return
+      end
+      return {
+        lsp_fallback = true,
+        timeout_ms = 1000,
+      }
+    end,
   },
 }
